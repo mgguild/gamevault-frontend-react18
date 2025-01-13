@@ -1,0 +1,62 @@
+@use '../_main' as main;
+
+.hr {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.page-body {
+  margin: 10rem 0;
+  position: relative;
+  z-index: 2;
+  min-height: 50vh;
+  padding: 0;
+}
+
+.filter-menu {
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  & > * {
+    margin-top: 10px;
+  }
+}
+
+.user-details {
+  justify-content: center;
+  align-items: center;
+}
+
+.user-details-text {
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+@media screen {
+  @media (min-width: main.$breakpoint-tablet) {
+    .page-body {
+      padding: 1rem;
+      border: none;
+    }
+    .filter-menu {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  
+  @media (min-width: main.$breakpoint-desktopSM) {
+    .page-body {
+      padding: 3rem;
+      border: none;
+    }
+    .user-details {
+      justify-content: flex-start;
+    }
+    .user-details-text {
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+  }
+}
