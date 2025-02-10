@@ -19,7 +19,7 @@ const VaultStakeActions: React.FC<VaultStakeActionsProps> = ({
   stakingTokenBalance,
   accountHasSharesStaked,
   isLoading = false,
-}) => {
+}: VaultStakeActionsProps) => {
   const { stakingToken } = pool
   const { t } = useTranslation()
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)

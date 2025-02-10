@@ -23,7 +23,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
   onDismiss,
   max,
   tokenName = '',
-}) => {
+}: WithdrawModalProps) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const { t } = useTranslation()

@@ -29,7 +29,7 @@ const ClaimAction: React.FC<StakeActionsProps> = ({
   stakingTokenBalance,
   stakingTokenPrice,
   addTokenUrl,
-}) => {
+}: StakeActionsProps) => {
   const { sousId, stakingToken, userData, isAddTokenDisabled, earningToken } = pool
   const [pendingTx, setPendingTx] = useState(false)
   const theme = useContext(ThemeContext)

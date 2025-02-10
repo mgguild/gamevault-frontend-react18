@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useLocation, Link, useRouteMatch } from 'react-router-dom'
+import { useLocation, Link, useResolvedPath } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@pancakeswap/uikit'
 import { useTranslation } from '../../../../contexts/Localization'
 
@@ -8,8 +8,8 @@ interface FarmTabButtonsProps {
   hasStakeInFinishedFarms: boolean
 }
 
-const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms }) => {
-  const { url } = useRouteMatch()
+const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms }: any) => {
+  const url = useResolvedPath("").pathname;
   const location = useLocation()
   const { t } = useTranslation()
 
@@ -32,11 +32,11 @@ const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms
   return (
     <Wrapper>
       <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
-        <ButtonMenuItem as={Link} to={`${url}`}>
+        <ButtonMenuItem as={Link as any} to={`${url}`}>
           {t('Live')}
         </ButtonMenuItem>
         <NotificationDot show={hasStakeInFinishedFarms}>
-          <ButtonMenuItem as={Link} to={`${url}/history`}>
+          <ButtonMenuItem as={Link  as any} to={`${url}/history`}>
             {t('Finished')}
           </ButtonMenuItem>
         </NotificationDot>

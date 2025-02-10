@@ -1,10 +1,10 @@
 import React from 'react'
-import { Redirect, RouteComponentProps } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
-export function RedirectToFarms({ location }: RouteComponentProps) {
-  return <Redirect to={{ ...location, pathname: '/farms' }} />
+export function RedirectToFarms({ location }: any) {
+  return <Navigate to={{ ...location, pathname: '/farms' }} />
 }
 
-export function RedirectToPools({ location }: RouteComponentProps) {
-  return <Redirect to={{ ...location, pathname: '/liquidity' }} />
+export function RedirectToPools({ location }: any) {
+  return <Navigate to={{ ...location, pathname: '/liquidity' }} />
 }

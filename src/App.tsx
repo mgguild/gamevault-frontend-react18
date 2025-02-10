@@ -1,7 +1,7 @@
 import React, { lazy } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import NetworkRoute from './components/NetworkRoute'
-import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ResetCSS } from '@metagg/mgg-uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from './hooks/useEagerConnect'
@@ -37,7 +37,7 @@ BigNumber.config({
 })
 
 const ExternalRedirect = ({ to, ...routeProps }: any) => {
-  return <Redirect to={to} />
+  return <Navigate to={to} />
 }
 
 const App: React.FC = () => {
@@ -53,7 +53,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Menu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
-          <Switch>
+          <Routes>
             <NetworkRoute
               path="/farms"
               Component={Farms}
@@ -155,14 +155,14 @@ const App: React.FC = () => {
             /> */}
 
             <Route path="/staking">
-              <Redirect to="/farms" />
+              <Navigate to="/farms" />
             </Route>
-            <Route path="/" component={RedirectToFarms} />
+            <Route path="/" element={ <RedirectToFarms /> } />
             {/* 404 */}
-            <Route component={NotFound} />
+            <Route element={ <NotFound /> } />
             {/* External link for redirect */}
             <ExternalRedirect exact path="/apply" to="https://www.google.com" />
-          </Switch>
+          </Routes>
         </SuspenseWithChunkError>
       </Menu>
       <Footer />

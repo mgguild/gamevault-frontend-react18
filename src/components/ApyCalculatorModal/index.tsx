@@ -39,7 +39,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   roundingDecimals = 2,
   compoundFrequency = 1,
   performanceFee = 0,
-}) => {
+}: any) => {
   const { t } = useTranslation()
   const oneThousandDollarsWorthOfToken = 1000 / tokenPrice
 

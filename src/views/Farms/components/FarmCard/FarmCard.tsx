@@ -84,7 +84,7 @@ interface FarmCardProps {
   account?: string
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ userDataReady, farm, removed, cakePrice, account }) => {
+const FarmCard: React.FC<FarmCardProps> = ({ userDataReady, farm, removed, cakePrice, account }: any) => {
   const { t } = useTranslation()
   const [showExpandableSection, setShowExpandableSection] = useState(false)
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()

@@ -10,7 +10,7 @@ interface TokenInputProps extends InputProps {
   onChange: (evt: React.FormEvent<HTMLInputElement>) => void
 }
 
-const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelectMax, value }) => {
+const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelectMax, value }: any) => {
   const { t } = useTranslation()
 
   return (

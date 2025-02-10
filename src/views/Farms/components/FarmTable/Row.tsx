@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ComponentProps, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { FarmWithStakedValue } from '../../../../views/Farms/components/FarmCard/FarmCard'
 import { useMatchBreakpoints } from '@pancakeswap/uikit'
@@ -68,7 +68,7 @@ const FarmMobileCell = styled.td`
   padding-top: 24px;
 `
 
-const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
+const Row: React.FC<ComponentProps<any> & RowPropsWithLoading> = (props) => {
   const { details, userDataReady } = props
   const hasStakedAmount = !!useFarmUser(details.pid).stakedBalance.toNumber()
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount)

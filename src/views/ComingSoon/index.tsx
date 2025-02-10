@@ -15,7 +15,7 @@ const StyledComingSoon = styled.div`
   }
 `
 
-const ComingSoon: React.FC<{ title: string; link?: string }> = ({ title, link }) => {
+const ComingSoon: React.FC<{ title: string; link?: string }> = ({ title, link }: any) => {
   return (
     <Page>
       <StyledComingSoon>

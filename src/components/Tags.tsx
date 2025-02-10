@@ -2,7 +2,7 @@ import React from 'react'
 import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon, RefreshIcon, AutoRenewIcon, TagProps } from '@pancakeswap/uikit'
 import { useTranslation } from '../contexts/Localization'
 
-const CoreTag: React.FC<TagProps> = (props) => {
+const CoreTag: React.FC<TagProps> = (props: any) => {
   const { t } = useTranslation()
   return (
     <Tag variant="secondary" outline startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />} {...props}>
@@ -11,7 +11,7 @@ const CoreTag: React.FC<TagProps> = (props) => {
   )
 }
 
-const CommunityTag: React.FC<TagProps> = (props) => {
+const CommunityTag: React.FC<TagProps> = (props: any) => {
   const { t } = useTranslation()
   return (
     <>
@@ -23,7 +23,7 @@ const CommunityTag: React.FC<TagProps> = (props) => {
   )
 }
 
-const BinanceTag: React.FC<TagProps> = (props) => {
+const BinanceTag: React.FC<TagProps> = (props: any) => {
   return (
     <Tag variant="binance" outline startIcon={<BinanceIcon width="18px" color="secondary" mr="4px" />} {...props}>
       Binance
@@ -31,7 +31,7 @@ const BinanceTag: React.FC<TagProps> = (props) => {
   )
 }
 
-const DualTag: React.FC<TagProps> = (props) => {
+const DualTag: React.FC<TagProps> = (props: any) => {
   const { t } = useTranslation()
   return (
     <Tag variant="textSubtle" outline {...props}>
@@ -40,7 +40,7 @@ const DualTag: React.FC<TagProps> = (props) => {
   )
 }
 
-const ManualPoolTag: React.FC<TagProps> = (props) => {
+const ManualPoolTag: React.FC<TagProps> = (props: any) => {
   const { t } = useTranslation()
   return (
     <Tag variant="secondary" outline startIcon={<RefreshIcon width="18px" color="secondary" mr="4px" />} {...props}>
@@ -49,7 +49,7 @@ const ManualPoolTag: React.FC<TagProps> = (props) => {
   )
 }
 
-const CompoundingPoolTag: React.FC<TagProps> = (props) => {
+const CompoundingPoolTag: React.FC<TagProps> = (props: any) => {
   const { t } = useTranslation()
   return (
     <Tag variant="success" outline startIcon={<AutoRenewIcon width="18px" color="success" mr="4px" />} {...props}>

@@ -20,7 +20,7 @@ const Balance: React.FC<BalanceProps> = ({
   prefix,
   onClick,
   ...props
-}) => {
+}: any) => {
   const previousValue = useRef(0)
 
   useEffect(() => {

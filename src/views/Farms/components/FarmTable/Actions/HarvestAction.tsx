@@ -35,7 +35,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
   pid,
   userData,
   userDataReady,
-}) => {
+}: any) => {
   const earningsBigNumber = new BigNumber(userData.earnings)
   const cakePrice = usePriceCakeBusd()
   let earnings = BIG_ZERO

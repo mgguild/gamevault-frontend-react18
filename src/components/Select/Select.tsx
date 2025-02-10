@@ -96,7 +96,7 @@ export interface OptionProps {
   value: any
 }
 
-const Select: React.FunctionComponent<SelectProps> = ({ options, onChange }) => {
+const Select: React.FunctionComponent<SelectProps> = ({ options, onChange }: any) => {
   const containerRef = useRef(null)
   const dropdownRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)

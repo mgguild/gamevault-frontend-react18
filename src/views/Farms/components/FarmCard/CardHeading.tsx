@@ -40,7 +40,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   rewardToken,
   token,
   pairToken,
-}) => {
+}: any) => {
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="12px">
       <Flex flexDirection="row" alignItems="">

@@ -25,7 +25,7 @@ const Divider = styled.div`
   width: 100%;
 `
 
-const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }) => {
+const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }: BountyModalProps) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { theme } = useTheme()
@@ -116,7 +116,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
         <Button
           isLoading={pendingTx}
           disabled={!dollarBountyToDisplay || !cakeBountyToDisplay || !callFee}
-          endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+          endIcon={pendingTx ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
           onClick={handleConfirmClick}
           mb="28px"
         >

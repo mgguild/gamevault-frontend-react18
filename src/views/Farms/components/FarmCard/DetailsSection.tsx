@@ -20,7 +20,7 @@ const StyledLinkExternal = styled(LinkExternal)`
   font-weight: 400;
 `
 
-const DetailsSection: React.FC<ExpandableSectionProps> = ({ stakingAddress, lpInfoAddress }) => {
+const DetailsSection: React.FC<ExpandableSectionProps> = ({ stakingAddress, lpInfoAddress }: any) => {
   const { t } = useTranslation()
 
   return (

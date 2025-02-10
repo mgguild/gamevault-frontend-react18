@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import BigNumber from 'bignumber.js'
 import { Button, Modal, Text, Flex } from '@metagg/mgg-uikit'
 
@@ -6,7 +6,7 @@ interface ClaimModalProps {
   onDismiss?: () => void
 }
 
-const ClaimModal: React.FC<ClaimModalProps> = ({ onDismiss }) => {
+const ClaimModal: React.FC<ClaimModalProps> = ({ onDismiss }: any) => {
   return (
     <Modal title="" onDismiss={onDismiss}>
       {/* <ModalInput

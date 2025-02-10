@@ -27,7 +27,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
   userDataLoaded,
   isAutoVault,
   earningTokenPrice,
-}) => {
+}: any) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
 

@@ -14,7 +14,7 @@ interface Props {
   exact?: boolean
 }
 
-const NetworkRoute: React.FC<Props> = ({ path, Component, chainSupportConfig, pageTitle, exact }) => {
+const NetworkRoute: React.FC<Props> = ({ path, Component, chainSupportConfig, pageTitle, exact }: any) => {
   const { title, id } = chainSupportConfig
   return (
     <Route path={`${path}${exact ? '/*' : ''}`} >

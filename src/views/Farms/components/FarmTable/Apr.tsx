@@ -48,7 +48,7 @@ const Apr: React.FC<AprProps> = ({
   cakePrice,
   originalValue,
   hideButton = false,
-}) => {
+}: any) => {
   const mainTokenAddress = quoteTokenAddress
   const pairTokenAddress = tokenAddress
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ mainTokenAddress, pairTokenAddress })

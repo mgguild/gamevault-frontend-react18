@@ -33,7 +33,7 @@ const Stake: React.FC<StakeModalInterface> = ({
   inputTitle,
   onConfirm,
   lpStakingContract,
-}) => {
+}: StakeModalInterface) => {
   const [val, setVal] = useState('0')
   const [pendingTx, setPendingTx] = useState(false)
   const valNumber = new BigNumber(val)

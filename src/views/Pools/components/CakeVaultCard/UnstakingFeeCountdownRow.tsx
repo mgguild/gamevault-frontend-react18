@@ -10,7 +10,7 @@ interface UnstakingFeeCountdownRowProps {
   isTableVariant?: boolean
 }
 
-const UnstakingFeeCountdownRow: React.FC<UnstakingFeeCountdownRowProps> = ({ isTableVariant }) => {
+const UnstakingFeeCountdownRow: React.FC<UnstakingFeeCountdownRowProps> = ({ isTableVariant }: UnstakingFeeCountdownRowProps) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const {

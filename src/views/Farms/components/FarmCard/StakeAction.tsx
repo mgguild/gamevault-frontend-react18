@@ -49,7 +49,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   addTokenUrl,
   farm,
   userDataReady,
-}) => {
+}: any) => {
   const { t } = useTranslation()
   const { onStake } = useStake(pid)
   const { account, chainId } = useWeb3React()

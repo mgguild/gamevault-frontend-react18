@@ -20,7 +20,7 @@ const VaultApprovalAction: React.FC<ApprovalActionProps> = ({ isLoading = false,
       ) : (
         <Button
           isLoading={requestedApproval}
-          endIcon={requestedApproval ? <AutoRenewIcon spin color="currentColor" /> : null}
+          endIcon={requestedApproval ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
           disabled={requestedApproval}
           onClick={handleApprove}
           width="100%"

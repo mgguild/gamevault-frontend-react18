@@ -30,7 +30,7 @@ const StyledButton = styled(Button)`
   flex-grow: 1;
 `
 
-const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isRemovingStake = false, onDismiss }) => {
+const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isRemovingStake = false, onDismiss }: VaultStakeModalProps) => {
   const dispatch: any = useAppDispatch()
   const { stakingToken } = pool
   const { account } = useWeb3React()
@@ -211,7 +211,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
       )}
       <Button
         isLoading={pendingTx}
-        endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+        endIcon={pendingTx ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
         onClick={handleConfirmClick}
         disabled={!stakeAmount || parseFloat(stakeAmount) === 0}
         mt="24px"

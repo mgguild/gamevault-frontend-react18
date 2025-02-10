@@ -11,7 +11,7 @@ export interface ApyButtonProps {
   addLiquidityUrl?: string
 }
 
-const ApyButton: React.FC<ApyButtonProps> = ({ lpLabel, cakePrice, apr, addLiquidityUrl }) => {
+const ApyButton: React.FC<ApyButtonProps> = ({ lpLabel, cakePrice, apr, addLiquidityUrl }: any) => {
   const { t } = useTranslation()
   const [onPresentApyModal] = useModal(
     <ApyCalculatorModal

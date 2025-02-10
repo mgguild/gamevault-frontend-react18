@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Route, useLocation, useRouteMatch } from 'react-router-dom'
+import { Route, useLocation, useResolvedPath } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import { Flex, Image, RowType, Toggle } from '@pancakeswap/uikit'
@@ -118,7 +118,7 @@ const StyledImage = styled(Image)`
 const NUMBER_OF_FARMS_VISIBLE = 12
 
 const Farms: React.FC = () => {
-  const { path } = useRouteMatch()
+  const path = useResolvedPath("").pathname;
   const { pathname } = useLocation()
   const { t } = useTranslation()
   const { data: farmsLP, userDataLoaded } = useFarms()
@@ -356,7 +356,7 @@ const Farms: React.FC = () => {
     return (
       <div style={{ marginTop: '25x', paddingTop: '25px' }}>
         <FlexLayout>
-          <Route exact path={`${path}`}>
+          <Route path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
               <FarmCard
                 userDataReady={userDataReady}
@@ -368,7 +368,7 @@ const Farms: React.FC = () => {
               />
             ))}
           </Route>
-          <Route exact path={`${path}/history`}>
+          <Route path={`${path}/history`}>
             {farmsStakedMemoized.map((farm) => (
               <FarmCard
                 userDataReady={userDataReady}
@@ -380,7 +380,7 @@ const Farms: React.FC = () => {
               />
             ))}
           </Route>
-          <Route exact path={`${path}/archived`}>
+          <Route path={`${path}/archived`}>
             {farmsStakedMemoized.map((farm) => (
               <FarmCard
                 userDataReady={userDataReady}

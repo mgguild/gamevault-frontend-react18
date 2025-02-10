@@ -17,7 +17,7 @@ interface FarmCardActionsProps {
   pid?: number
 }
 
-const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
+const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }: any) => {
   const { account, chainId } = useWeb3React()
   const chain = chainId ? chainId.toString() : MAINNET_CHAIN_ID
   const { t } = useTranslation()

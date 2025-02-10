@@ -30,7 +30,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   account,
   addLiquidityUrl,
   addTokenUrl,
-}) => {
+}: any) => {
   const { t } = useTranslation()
   const { pid, lpAddresses } = farm
   const {

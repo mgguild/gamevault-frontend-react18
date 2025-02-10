@@ -47,7 +47,7 @@ const StakeActionModal: React.FC<StakeModalProps> = ({
   isRemovingStake = false,
   onDismiss,
   isApprove = false,
-}) => {
+}: StakeModalProps) => {
   const { sousId, stakingToken, userData, stakingLimit, earningToken } = pool
   const approveBtn = useRef(null)
   const stakingTokenContract: any = useERC20(stakingToken.address ? getAddress(stakingToken.address) : '')
@@ -272,7 +272,7 @@ const StakeActionModal: React.FC<StakeModalProps> = ({
           <Button
             isLoading={pendingTx}
             // endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
-            endIcon={requestedApproval ? <AutoRenewIcon spin color="currentColor" /> : null}
+            endIcon={requestedApproval ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
             // onClick={handleApproveClick}
             // disabled={!stakeAmount || parseFloat(stakeAmount) === 0 || hasReachedStakeLimit || approvedTx}
             onClick={handleApprove}
@@ -285,7 +285,7 @@ const StakeActionModal: React.FC<StakeModalProps> = ({
           </Button>
           <Button
             isLoading={pendingTx}
-            endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+            endIcon={pendingTx ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
             onClick={handleConfirmClick}
             disabled={!stakeAmount || hasReachedStakeLimit || !isApproved}
             // disabled={!approvedTx}

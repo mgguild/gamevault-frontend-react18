@@ -20,7 +20,7 @@ const StyledComingSoon = styled.div`
 const NotSupported: React.FC<{ title: string; supportedChainId?: number }> = ({
   title,
   supportedChainId = MAINNET_CHAIN_ID,
-}) => {
+}: any) => {
   return (
     <Page>
       <StyledComingSoon>

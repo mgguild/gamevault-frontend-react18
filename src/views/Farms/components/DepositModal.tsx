@@ -42,7 +42,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
   handleUnstake,
   farm,
   maxStake,
-}) => {
+}: any) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { t } = useTranslation()
   const [activeSelect, setActiveSelect] = useState(false)

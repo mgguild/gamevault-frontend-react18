@@ -13,7 +13,7 @@ interface AprProps extends FlexProps {
   performanceFee?: number
 }
 
-const Apr: React.FC<AprProps> = ({ pool, showIcon, performanceFee = 0, ...props }) => {
+const Apr: React.FC<AprProps> = ({ pool, showIcon, performanceFee = 0, ...props }: any) => {
   const { stakingToken, earningToken, isFinished, earningTokenPrice, apr } = pool
   const { t } = useTranslation()
 

@@ -26,7 +26,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   isBnbPool,
   isStaked,
   isLoading = false,
-}) => {
+}: any) => {
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData } = pool
   const { t } = useTranslation()
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)

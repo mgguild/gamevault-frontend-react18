@@ -1,12 +1,12 @@
 import React from 'react'
-import { useRouteMatch, Link, useLocation } from 'react-router-dom'
+import { useResolvedPath, Link, useLocation } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, Toggle, Text, Flex, useMatchBreakpoints } from '@metagg/mgg-uikit'
 import { NotificationDot } from '@pancakeswap/uikit'
 import { useTranslation } from '../../../contexts/Localization'
 import ToggleView, { ViewMode } from './ToggleView/ToggleView'
 
 const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, viewMode, setViewMode }) => {
-  const { url, isExact } = useRouteMatch()
+  const url = useResolvedPath("").pathname;
   const location = useLocation()
   const { isXs, isSm } = useMatchBreakpoints()
   const { t } = useTranslation()

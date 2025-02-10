@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState, useContext } from 'react'
-import { useLocation, Route, useRouteMatch } from 'react-router-dom'
+import { useLocation, Route, useResolvedPath } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
@@ -233,7 +233,6 @@ const Pools: React.FC = () => {
   )
 
   const tableLayout = <PoolsTable pools={poolsToShow()} account={account} userDataLoaded={userDataLoaded} />
-  const { path, url, isExact } = useRouteMatch()
 
   const [isFetchData, setFetchData] = useState<boolean | null>(true)
   const mggPool = pools.filter((pool) => pool.isMain)[0]

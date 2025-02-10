@@ -38,7 +38,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
   isBnbPool,
   isCompoundPool = false,
   onDismiss,
-}) => {
+}: CollectModalProps) => {
   const { t } = useTranslation()
   const { theme } = useTheme()
   const { toastSuccess, toastError } = useToast()
@@ -121,7 +121,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
         mt="8px"
         onClick={handleHarvestConfirm}
         isLoading={pendingTx}
-        endIcon={pendingTx ? <AutoRenewIcon spin color="currentColor" /> : null}
+        endIcon={pendingTx ? <AutoRenewIcon spin={true} color="currentColor" /> : null}
       >
         {pendingTx ? t('Confirming') : t('Confirm')}
       </Button>

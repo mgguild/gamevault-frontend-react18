@@ -23,7 +23,7 @@ const StyledPage = styled(Container)`
   }
 `
 
-export const PageMeta: React.FC<{ guildpadTitle?: string }> = ({ guildpadTitle }) => {
+export const PageMeta: React.FC<{ guildpadTitle?: string }> = ({ guildpadTitle }: any) => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
 
@@ -49,7 +49,7 @@ export const PageMeta: React.FC<{ guildpadTitle?: string }> = ({ guildpadTitle }
   )
 }
 
-const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
+const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }: any) => {
   return (
     <>
       <PageMeta />
