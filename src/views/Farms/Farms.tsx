@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Route, useLocation, useResolvedPath } from 'react-router-dom'
+import { Route, Routes, useLocation, useResolvedPath } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import { Flex, Image, RowType, Toggle } from '@pancakeswap/uikit'
@@ -12,7 +12,7 @@ import useMedia from 'use-media'
 import { SvgIcon } from '@material-ui/core'
 import { useFarms, usePollFarmsData, usePriceCakeBusd } from '../../state/hooks'
 import usePersistState from '../../hooks/usePersistState'
-import { useFarmPrice } from '../../hooks/price'
+// import { useFarmPrice } from '../../hooks/price'
 import usePrevious from '../../utils/refHelpers'
 import { Farm } from '../../state/types'
 import { useTranslation } from '../../contexts/Localization'
@@ -356,42 +356,42 @@ const Farms: React.FC = () => {
     return (
       <div style={{ marginTop: '25x', paddingTop: '25px' }}>
         <FlexLayout>
-          <Route path={`${path}`}>
-            {farmsStakedMemoized.map((farm) => (
-              <FarmCard
-                userDataReady={userDataReady}
-                key={farm.pid}
-                farm={farm}
-                cakePrice={cakePrice}
-                account={account}
-                removed={false}
-              />
-            ))}
-          </Route>
-          <Route path={`${path}/history`}>
-            {farmsStakedMemoized.map((farm) => (
-              <FarmCard
-                userDataReady={userDataReady}
-                key={farm.pid}
-                farm={farm}
-                cakePrice={cakePrice}
-                account={account}
-                removed
-              />
-            ))}
-          </Route>
-          <Route path={`${path}/archived`}>
-            {farmsStakedMemoized.map((farm) => (
-              <FarmCard
-                userDataReady={userDataReady}
-                key={farm.pid}
-                farm={farm}
-                cakePrice={cakePrice}
-                account={account}
-                removed
-              />
-            ))}
-          </Route>
+          <Routes>
+            <Route path={`${path}`} element={
+              farmsStakedMemoized.map((farm) => (
+                <FarmCard
+                  userDataReady={userDataReady}
+                  key={farm.pid}
+                  farm={farm}
+                  cakePrice={cakePrice}
+                  account={account}
+                  removed={false}
+                />
+              ))}/>
+            <Route path={`${path}/history`}  element={
+              farmsStakedMemoized.map((farm) => (
+                <FarmCard
+                  userDataReady={userDataReady}
+                  key={farm.pid}
+                  farm={farm}
+                  cakePrice={cakePrice}
+                  account={account}
+                  removed
+                />
+              ))}/>
+            <Route path={`${path}/archived`} element={
+              farmsStakedMemoized.map((farm) => (
+                <FarmCard
+                  userDataReady={userDataReady}
+                  key={farm.pid}
+                  farm={farm}
+                  cakePrice={cakePrice}
+                  account={account}
+                  removed
+                />
+              ))
+            }/>
+          </Routes>
           {/* {farmsList(activeFarms).map((farm) => ( */}
           {/*  <FarmCard userDataReady={userDataReady} key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} /> */}
           {/* ))} */}
@@ -436,48 +436,48 @@ const Farms: React.FC = () => {
   // const token1Balance = useTokenBalance(mggFarm.token.address[chainId], mggFarm.lpAddresses[chainId])
   // const token2Balance = useTokenBalance(mggFarm.pairToken.address[chainId], mggFarm.lpAddresses[chainId])
 
-  const { LPPrice, rewardPrice } = useFarmPrice(mggFarm, chain, isFetchData)
-  const prevLPPrice = usePrevious(LPPrice)
-  const prevRewardPrice = usePrevious(rewardPrice)
-  useEffect(() => {
-    if (LPPrice > 0 || rewardPrice > 0) {
-      setFetchData(false)
-    }
-    setTimeout(() => {
-      setFetchData(true)
-      if (LPPrice !== prevLPPrice || rewardPrice !== prevRewardPrice) {
-        setFetchData(true)
-      } else {
-        setFetchData(false)
-      }
-    }, 60000)
-    if (prevLPPrice === LPPrice || prevRewardPrice === rewardPrice) {
-      setFetchData(false)
-    }
-  }, [LPPrice, rewardPrice, setFetchData, prevLPPrice, prevRewardPrice])
-  useEffect(() => {
-    return setFetchData(null)
-  }, [])
+  // const { LPPrice, rewardPrice } = useFarmPrice(mggFarm, chain, isFetchData)
+  // const prevLPPrice = usePrevious(LPPrice)
+  // const prevRewardPrice = usePrevious(rewardPrice)
+  // useEffect(() => {
+  //   if (LPPrice > 0 || rewardPrice > 0) {
+  //     setFetchData(false)
+  //   }
+  //   setTimeout(() => {
+  //     setFetchData(true)
+  //     if (LPPrice !== prevLPPrice || rewardPrice !== prevRewardPrice) {
+  //       setFetchData(true)
+  //     } else {
+  //       setFetchData(false)
+  //     }
+  //   }, 60000)
+  //   if (prevLPPrice === LPPrice || prevRewardPrice === rewardPrice) {
+  //     setFetchData(false)
+  //   }
+  // }, [LPPrice, rewardPrice, setFetchData, prevLPPrice, prevRewardPrice])
+  // useEffect(() => {
+  //   return setFetchData(null)
+  // }, [])
   const totalDeposits = mggFarm ? mggFarm.totalDeposits : 0
   const rewardRate = mggFarm ? mggFarm.rewardRate : 0
   const lpSymbol = mggFarm ? mggFarm.lpSymbol : 'N/A'
   const lpTotalSupply = mggFarm ? mggFarm.lpTotalSupply : 'N/A'
 
-  const farmV2Apr = useMemo(() => {
-    return getFarmV2Apr(LPPrice, rewardPrice, Number(totalDeposits), Number(rewardRate))
-  }, [totalDeposits, rewardRate, LPPrice, rewardPrice])
+  // const farmV2Apr = useMemo(() => {
+  //   return getFarmV2Apr(LPPrice, rewardPrice, Number(totalDeposits), Number(rewardRate))
+  // }, [totalDeposits, rewardRate, LPPrice, rewardPrice])
 
-  const apr = farmV2Apr > 0 ? `${farmV2Apr.toFixed(2)} %` : <Oval width="20px" height="20px" />
+  // const apr = farmV2Apr > 0 ? `${farmV2Apr.toFixed(2)} %` : <Oval width="20px" height="20px" />
   const totalStaked =
     getBalanceNumber(new BigNumber(totalDeposits)) > 0 ? (
       `${getBalanceAmount(new BigNumber(totalDeposits)).toFormat(4)} ${lpSymbol}`
     ) : (
       <Oval width="20px" height="20px" />
     )
-  const tvr = useMemo(
-    () => getBalanceAmount(new BigNumber(lpTotalSupply)).times(LPPrice).toFixed(4),
-    [lpTotalSupply, LPPrice],
-  )
+  // const tvr = useMemo(
+  //   () => getBalanceAmount(new BigNumber(lpTotalSupply)).times(LPPrice).toFixed(4),
+  //   [lpTotalSupply, LPPrice],
+  // )
   return (
     <>
       <PageHeader>
@@ -515,14 +515,14 @@ const Farms: React.FC = () => {
                   Total Value Locked
                 </Text>
                 <Text fontSize="20px">
-                  {Number(tvr) > 0 && Number(tvr) !== Infinity ? `${tvr} USD` : <Oval width="20px" height="20px" />}
+                  {/* {Number(tvr) > 0 && Number(tvr) !== Infinity ? `${tvr} USD` : <Oval width="20px" height="20px" />} */}
                 </Text>
               </Flex>
               <Flex flexDirection="column">
                 <Text fontSize="17px" bold color={theme.colors.MGG_accent2}>
                   APR
                 </Text>
-                <Text fontSize="20px">{apr}</Text>
+                {/* <Text fontSize="20px">{apr}</Text> */}
               </Flex>
             </InfoBox>
           </Flex>

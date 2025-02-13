@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { ComponentProps, useContext, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes, ThemeContext } from 'styled-components'
 import { Flex, Skeleton, Text } from '@sparkpointio/sparkswap-uikit'
 import { Farm } from '../../../../state/types'
-import { useFarmPrice } from '../../../../hooks/price'
 import { getFarmV2Apr } from '../../../../utils/apr'
 import useTokenBalance from '../../../../hooks/useTokenBalance'
 import { useWeb3React } from '@web3-react/core'
@@ -84,7 +83,7 @@ interface FarmCardProps {
   account?: string
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ userDataReady, farm, removed, cakePrice, account }: any) => {
+const FarmCard: React.FC<ComponentProps<any> & FarmCardProps> = ({ userDataReady, farm, removed, cakePrice, account }: FarmCardProps) => {
   const { t } = useTranslation()
   const [showExpandableSection, setShowExpandableSection] = useState(false)
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()

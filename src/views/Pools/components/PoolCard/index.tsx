@@ -6,7 +6,7 @@ import { ThemeContext } from 'styled-components'
 import UnlockButton from '../../../../components/UnlockButton'
 import { useTranslation } from '../../../../contexts/Localization'
 import { BIG_ZERO } from '../../../../utils/bigNumber'
-import { usePoolPrice } from '../../../../hooks/price'
+// import { usePoolPrice } from '../../../../hooks/price'
 import { getPoolApr } from '../../../../utils/apr'
 import { getBscScanAddressUrl } from '../../../../utils/bscscan'
 import { Pool } from '../../../../state/types'
@@ -60,9 +60,9 @@ const PoolCard: React.FC<{ pool: Pool; account: string; userDataReady: boolean }
   const { shouldShowBlockCountdown, blocksUntilStart, blocksRemaining, hasPoolStarted, blocksToDisplay } =
     getPoolBlockInfo(pool, currentBlock)
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber(userData.stakingTokenBalance) : BIG_ZERO
-  const { stakingPrice, rewardPrice } = usePoolPrice(stakingToken.address[56], earningToken.address[56])
+  // const { stakingPrice, rewardPrice } = usePoolPrice(stakingToken.address[56], earningToken.address[56])
   const isBnbPool = poolCategory === PoolCategory.BINANCE
-  const apr = getPoolApr(stakingPrice, rewardPrice, totalStaked, rewardPerBlock)
+  // const apr = getPoolApr(stakingPrice, rewardPrice, totalStaked, rewardPerBlock)
   return (
     <StyledCard isFinished={isFinished && sousId !== 0}>
       <StyledCardHeader

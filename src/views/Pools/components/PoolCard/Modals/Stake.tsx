@@ -219,7 +219,9 @@ const StakeActionModal: React.FC<StakeModalProps> = ({
         {/* Fetch and display actual balance */}
 
         <Text color="textSubtle" fontSize="14px" mb="8px" style={{ textAlign: 'left' }}>
-          Remaining stakable amount: {remainingStakeTokens} {pool.stakingToken.symbol}
+          <>
+            Remaining stakable amount: {remainingStakeTokens} {pool.stakingToken.symbol}
+          </>
         </Text>
 
         <div>

@@ -11,7 +11,7 @@ import partition from 'lodash/partition'
 import { SvgIcon } from '@material-ui/core'
 import { useTranslation } from '../../contexts/Localization'
 import usePersistState from '../../hooks/usePersistState'
-import { usePoolPrice } from '../../hooks/price'
+// import { usePoolPrice } from '../../hooks/price'
 import { usePools, useFetchCakeVault, useFetchPublicPoolsData, usePollFarmsData, useCakeVault } from '../../state/hooks'
 import { latinise } from '../../utils/latinise'
 import { getPoolApr } from '../../utils/apr'
@@ -242,38 +242,38 @@ const Pools: React.FC = () => {
   const rewardPerBlock = mggPool?.tokenPerBlock
     ? getBalanceNumber(new BigNumber(mggPool.tokenPerBlock.toString()), mggPool.earningToken.decimals)
     : 0
-  const { stakingPrice, rewardPrice } = usePoolPrice(
-    mggPool.stakingToken.address[56],
-    mggPool.earningToken.address[56],
-    isFetchData,
-  )
+  // const { stakingPrice, rewardPrice } = usePoolPrice(
+  //   mggPool.stakingToken.address[56],
+  //   mggPool.earningToken.address[56],
+  //   isFetchData,
+  // )
 
-  const prevStakingPrice = usePrevious(stakingPrice)
-  const prevRewardPrice = usePrevious(rewardPrice)
+  // const prevStakingPrice = usePrevious(stakingPrice)
+  // const prevRewardPrice = usePrevious(rewardPrice)
 
-  useEffect(() => {
-    if (stakingPrice > 0 || rewardPrice > 0) {
-      setFetchData(false)
-    }
-    setTimeout(() => {
-      setFetchData(true)
-      if (stakingPrice !== prevStakingPrice || rewardPrice !== prevRewardPrice) {
-        setFetchData(true)
-      } else {
-        setFetchData(false)
-      }
-    }, 60000)
-    if (prevStakingPrice === stakingPrice || prevRewardPrice === rewardPrice) {
-      setFetchData(false)
-    }
-  }, [stakingPrice, rewardPrice, setFetchData, prevStakingPrice, prevRewardPrice])
+  // useEffect(() => {
+  //   if (stakingPrice > 0 || rewardPrice > 0) {
+  //     setFetchData(false)
+  //   }
+  //   setTimeout(() => {
+  //     setFetchData(true)
+  //     if (stakingPrice !== prevStakingPrice || rewardPrice !== prevRewardPrice) {
+  //       setFetchData(true)
+  //     } else {
+  //       setFetchData(false)
+  //     }
+  //   }, 60000)
+  //   if (prevStakingPrice === stakingPrice || prevRewardPrice === rewardPrice) {
+  //     setFetchData(false)
+  //   }
+  // }, [stakingPrice, rewardPrice, setFetchData, prevStakingPrice, prevRewardPrice])
 
-  useEffect(() => {
-    return setFetchData(null)
-  }, [])
-  const poolApr = getPoolApr(stakingPrice, rewardPrice, totalStaked, rewardPerBlock) ?? 0
-  const apr = poolApr > 0 ? `${poolApr.toFixed(2)} %` : <Oval width="20px" height="20px" />
-  const tvr = useMemo(() => new BigNumber(totalStaked).times(stakingPrice).toFixed(4), [totalStaked, stakingPrice])
+  // useEffect(() => {
+  //   return setFetchData(null)
+  // }, [])
+  // const poolApr = getPoolApr(stakingPrice, rewardPrice, totalStaked, rewardPerBlock) ?? 0
+  // const apr = poolApr > 0 ? `${poolApr.toFixed(2)} %` : <Oval width="20px" height="20px" />
+  // const tvr = useMemo(() => new BigNumber(totalStaked).times(stakingPrice).toFixed(4), [totalStaked, stakingPrice])
   return (
     <>
       <PageHeader>
@@ -313,13 +313,13 @@ const Pools: React.FC = () => {
                 <Text fontSize="17px" bold color={theme.colors.MGG_accent2}>
                   Total Value Locked
                 </Text>
-                <Text fontSize="20px">{Number(tvr) > 0 ? `${tvr} USD` : <Oval width="20px" height="20px" />}</Text>
+                {/* <Text fontSize="20px">{Number(tvr) > 0 ? `${tvr} USD` : <Oval width="20px" height="20px" />}</Text> */}
               </Flex>
               <Flex flexDirection="column">
                 <Text fontSize="17px" bold color={theme.colors.MGG_accent2}>
                   APR
                 </Text>
-                <Text fontSize="20px"> {apr} </Text>
+                {/* <Text fontSize="20px"> {apr} </Text> */}
               </Flex>
             </InfoBox>
           </Flex>
